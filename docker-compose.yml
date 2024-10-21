@@ -1,0 +1,36 @@
+
+name: "clinicorp"
+
+services:
+  backend:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    container_name: clinicorp-backend
+    #command: sh -c "./wait-for.sh db-oowlish-redis:6379 -- yarn dev"
+
+    volumes:
+      - ./backend:/app/api
+      - ./backend/node_modules:/app/api/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - clinicorp-network
+  frontend:
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    #command: sh -c "./wait-for.sh backend:3333 -- yarn start"
+    depends_on:
+      - backend
+    container_name: clinicorp-frontend
+    volumes:
+      - ./frontend/:/app/frontend
+      - ./frontend/node_modules:/app/frontend/node_modules
+    ports:
+      - "3001:3001"
+    networks:
+      - clinicorp-network
+networks:
+  clinicorp-network:
+    driver: bridge
