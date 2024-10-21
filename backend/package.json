@@ -28,7 +28,6 @@
     "helmet": "^8.0.0",
     "newrelic": "^12.5.1",
     "swagger-ui-express": "^5.0.1",
-    "tsyringe": "^4.8.0",
     "zod": "^3.23.8"
   },
   "imports": {

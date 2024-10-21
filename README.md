@@ -52,7 +52,7 @@ A api foi escrita em Node.js 20 LTS com as seguintes dependencias:
 - express-async-errors
 - firebase-admin
 - helmet
-- reflect-metadata
+- newrelic
 - swagger-ui-express
 - zod
 - jest
@@ -88,7 +88,7 @@ Uma vez baixado o projeto do git, dentro da pasta `backend`, rode o seguinte com
 
 # Frontend
 
-1 `npm install`
+1. `npm install`
 
 ## Rodando containers
 
